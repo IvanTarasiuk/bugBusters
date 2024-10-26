@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bug Busters</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <style>
+        /* Уменьшаем высоту и добавляем границы */
+        .card {
+            background-color: #212529;
+            border: 1px solid #495057;
+            border-radius: 0.25rem;
+            margin-bottom: 1rem;
+            max-width: 90%;
+            padding: 8px; /* Уменьшаем отступы внутри карточки */
+        }
+
+        /* Ограничиваем количество текста в описании */
+        .card-text {
+            max-height: 40px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap; /* Чтобы текст не переносился и был сокращен */
+        }
+
+        .list-group-item {
+            background-color: #212529;
+            border: none;
+        }
+
+        .dropdown-menu {
+            background-color: #343a40;
+        }
+
+        .pagination a {
+            color: white;
+        }
+
+        /* Стили для тегов */
+        .tag {
+            display: inline-block;
+            background-color: #6c757d;
+            color: #fff;
+            padding: 0.3em 0.6em;
+            border-radius: 0.25rem;
+            margin: 0.2em;
+            font-size: 0.875rem;
+            text-decoration: none;
+        }
+
+        .tag:hover {
+            background-color: #495057;
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .tag-group {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .user-link {
+            text-decoration: none;
+            color: #17a2b8;
+        }
+
+        .user-link:hover {
+            text-decoration: underline;
+            color: #0dcaf0;
+        }
+
+    </style>
+</head>
+<body class="bg-dark text-white">
+<nav class="navbar bg-dark border-bottom border-body" data-bs-theme="dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">Bug Busters</a>
+        <div class="d-flex flex-grow-1 justify-content-center">
+            <form class="d-flex" role="search" style="width: 50%;" data-bs-theme="dark">
+                <input class="form-control me-2 bg-secondary text-white" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+        </div>
+        <div class="dropdown">
+            <a class="d-flex align-items-center link-dark text-decoration-none dropdown-toggle" href="#" id="dropdownUser" data-bs-toggle="dropdown" aria-expanded="false">
+                <img src="profile.png" alt="img" width="40" height="40" class="rounded-circle me-2">
+                <span class="text-white">Username</span>
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end bg-dark" aria-labelledby="dropdownUser">
+                <li><a class="dropdown-item text-light" href="#">Profile</a></li>
+                <li><a class="dropdown-item text-light" href="#">Settings</a></li>
+                <li><hr class="dropdown-divider bg-light"></li>
+                <li><a class="dropdown-item text-light" href="#">Log Out</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container mt-4">
+    <div class="row">
+        <!-- Основной контент -->
+        <div class="col-md-8">
+            <h2>New Questions</h2>
+
+            <!-- Пример карточки вопроса с темной темой -->
+            <div class="card" data-bs-theme="dark">
+                <div class="row g-0">
+                    <div class="col-md-2 text-center">
+                        <p class="mb-2"></p>
+                        <img src="profile.png" class="img-fluid rounded-circle" alt="Avatar" width="50">
+                        <p class="mb-4"></p>
+                        <div class="dropdown mt-2">
+                            <button class="btn btn-outline-light dropdown-toggle" type="button" id="ratingDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                                Rate
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="ratingDropdown">
+                                <li><a class="dropdown-item" href="#">1</a></li>
+                                <li><a class="dropdown-item" href="#">2</a></li>
+                                <li><a class="dropdown-item" href="#">3</a></li>
+                                <li><a class="dropdown-item" href="#">4</a></li>
+                                <li><a class="dropdown-item" href="#">5</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-10">
+                        <div class="card-body">
+                            <h5 class="card-title"><a href="#" class="text-light">Как улучшить производительность JavaScript?</a></h5>
+                            <p class="card-text">Как оптимизировать код JavaScript для повышения производительности в веб-приложениях?</p>
+                            <p class="card-text"><small class="text-muted">Теги: <a href="#" class="text-light">#JavaScript</a> <a href="#" class="text-light">#Performance</a></small></p>
+                            <p class="card-text"><small class="text-muted"><a href="#" class="text-light">Ответы (3)</a></small></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Пример карточки вопроса с темной темой -->
+            <div class="card" data-bs-theme="dark">
+                <div class="row g-0">
+                    <div class="col-md-2 text-center">
+                        <p class="mb-2"></p>
+                        <img src="profile.png" class="img-fluid rounded-circle" alt="Avatar" width="50">
+                        <p class="mb-4"></p>
+                        <div class="dropdown mt-2">
+                            <button class="btn btn-outline-light dropdown-toggle" type="button" id="ratingDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                                Rate
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="ratingDropdown">
+                                <li><a class="dropdown-item" href="#">1</a></li>
+                                <li><a class="dropdown-item" href="#">2</a></li>
+                                <li><a class="dropdown-item" href="#">3</a></li>
+                                <li><a class="dropdown-item" href="#">4</a></li>
+                                <li><a class="dropdown-item" href="#">5</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-10">
+                        <div class="card-body">
+                            <h5 class="card-title"><a href="#" class="text-light">Как улучшить производительность JavaScript?</a></h5>
+                            <p class="card-text">Как оптимизировать код JavaScript для повышения производительности в веб-приложениях?</p>
+                            <p class="card-text"><small class="text-muted">Теги: <a href="#" class="text-light">#JavaScript</a> <a href="#" class="text-light">#Performance</a></small></p>
+                            <p class="card-text"><small class="text-muted"><a href="#" class="text-light">Ответы (3)</a></small></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card" data-bs-theme="dark">
+                <div class="row g-0">
+                    <div class="col-md-2 text-center">
+                        <p class="mb-2"></p>
+                        <img src="profile.png" class="img-fluid rounded-circle" alt="Avatar" width="50">
+                        <p class="mb-4"></p>
+                        <div class="dropdown mt-2">
+                            <button class="btn btn-outline-light dropdown-toggle" type="button" id="ratingDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                                Rate
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="ratingDropdown">
+                                <li><a class="dropdown-item" href="#">1</a></li>
+                                <li><a class="dropdown-item" href="#">2</a></li>
+                                <li><a class="dropdown-item" href="#">3</a></li>
+                                <li><a class="dropdown-item" href="#">4</a></li>
+                                <li><a class="dropdown-item" href="#">5</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-10">
+                        <div class="card-body">
+                            <h5 class="card-title"><a href="#" class="text-light">Как улучшить производительность JavaScript?</a></h5>
+                            <p class="card-text">Как оптимизировать код JavaScript для повышения производительности в веб-приложениях?</p>
+                            <p class="card-text"><small class="text-muted">Теги: <a href="#" class="text-light">#JavaScript</a> <a href="#" class="text-light">#Performance</a></small></p>
+                            <p class="card-text"><small class="text-muted"><a href="#" class="text-light">Ответы (3)</a></small></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Колонка с популярными тегами -->
+        <div class="col-md-4">
+            <h3>Popular Tags</h3>
+            <div class="tag-group">
+                <a href="#" class="tag">JavaScript</a>
+                <a href="#" class="tag">Python</a>
+                <a href="#" class="tag">HTML</a>
+                <a href="#" class="tag">CSS</a>
+                <a href="#" class="tag">React</a>
+                <a href="#" class="tag">Node.js</a>
+                <a href="#" class="tag">Bootstrap</a>
+            </div>
+
+            <!-- Блок с Лучшие пользователи -->
+            <h3 class="mt-4">Best Members</h3>
+            <ul class="list-group">
+                <li class="list-group-item"><a href="#" class="text-light" class="user-link">Vanechka</a></li>
+                <li class="list-group-item"><a href="#" class="text-light" class="user-link">Mishen'ka</a></li>
+                <li class="list-group-item"><a href="#" class="text-light" class="user-link">Maksimka</a></li>
+                <li class="list-group-item"><a href="#" class="text-light" class="user-link">Olejka</a></li>
+                <li class="list-group-item"><a href="#" class="text-light" class="user-link">Andryushka</a></li>
+            </ul>
+        </div>
+    </div>
+                            <!-- Пагинация -->
+            <nav aria-label="Page navigation example" class="fixed-pagination">
+                <ul class="pagination justify-content-center">
+                    <li class="page-item">
+                        <a class="page-link bg-dark text-white border-secondary" href="#" aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                        </a>
+                    </li>
+                    <li class="page-item"><a class="page-link bg-dark text-white border-secondary" href="#">1</a></li>
+                    <li class="page-item"><a class="page-link bg-dark text-white border-secondary" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link bg-dark text-white border-secondary" href="#">3</a></li>
+                    <li class="page-item">
+                        <a class="page-link bg-dark text-white border-secondary" href="#" aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>
